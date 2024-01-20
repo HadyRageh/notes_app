@@ -7,8 +7,10 @@ class CustomTextField extends StatelessWidget {
   CustomTextField({
     super.key,
     this.hintText,
+    required this.isContent,
   });
   String? hintText;
+  bool isContent;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,9 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(color: kPrimaryColor),
-        contentPadding: EdgeInsets.all(16),
+        contentPadding: isContent
+            ? EdgeInsets.only(left: 16, top: 50, bottom: 50)
+            : EdgeInsets.all(16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(color: Colors.white),
